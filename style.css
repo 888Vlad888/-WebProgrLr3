@@ -1,0 +1,159 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header {
+    overflow: hidden;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+}
+
+.logo img {
+    width: 50px; /* Приблизний розмір іконки */
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 24px; /* Розмір тексту логотипу */
+    font-weight: bold;
+}
+
+.contacts {
+    text-align: right;
+}
+
+.contacts a {
+    color: #007bff; /* Колір посилань */
+    text-decoration: none;
+}
+
+main {
+    overflow: hidden; /* Для коректного обтікання float елементів */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Відступ між картками */
+}
+
+.card {
+    width: calc(33.33% - 20px * 2 / 3); /* Три картки в ряд з урахуванням відступів */
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* Для меншої кількості карток в останньому ряду */
+.card:nth-last-child(-n+3):first-child {
+    width: 100%;
+}
+
+.card:nth-last-child(-n+2):first-child,
+.card:nth-last-child(-n+2):nth-child(2) {
+    width: calc(50% - 20px / 2);
+}
+
+.card a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Щоб .card мав висоту для вирівнювання */
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    height: 200px; /* Задайте фіксовану висоту для всіх зображень */
+    object-fit: cover; /* Обрізає або масштабує зображення для заповнення контейнера зі збереженням пропорцій */
+}
+
+.card p {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px; /* Додайте трохи відступу навколо тексту */
+}
+
+.card.sightseeing {
+    position: relative; /* Для позиціонування price-bar */
+}
+
+.card.sightseeing .price-bar {
+    background-color: #ff9933; /* Колір плашки з ціною */
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.card.sightseeing .price-bar span {
+    font-size: 16px;
+}
+
+.card.sightseeing .view-details {
+    position: relative;
+    padding-right: 20px;
+}
+
+.card.sightseeing .view-details::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    border-left: 5px solid #fff;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+.clearfix {
+    clear: both; /* Очищаємо обтікання float елементів */
+}
+
+footer {
+    text-align: center;
+    padding-top: 20px;
+    color: #777;
+}
+
+/* Стилі для стану hover (з другого макету) */
+.logo a:hover span {
+    color: #0056b3; /* Зміна кольору тексту лого при наведенні */
+}
+
+.card a:hover p {
+    color: #007bff; /* Зміна кольору тексту під картинкою при наведенні */
+}
+
+.card.sightseeing a:hover .price-bar {
+    background-color: #e68a2e; /* Зміна кольору плашки з ціною при наведенні */
+}
+
+.card.sightseeing a:hover .view-details::after {
+    border-left-color: #e68a2e; /* Зміна кольору стрілочки при наведенні */
+}
